@@ -1,0 +1,60 @@
+
+
+
+<topology>
+  
+  <node name="node16x5">
+    <attributes>sender</attributes> <!-- comma separated attributes -->
+    <alias>sender</alias>
+    <interface type="WifiInterface">
+      <mode>adhoc</mode> <!-- either adhoc, station, master -->
+      <channel>11</channel>
+       <essid>station0</essid>
+       <standard>n</standard>
+    </interface>    
+  </node>
+
+  <node name="node7x10">
+    <alias>ap</alias>
+    <attributes>bottleneck</attributes>
+        <interface type="WifiInterface">
+      <mode>adhoc</mode> 
+      <channel>11</channel>
+      <essid>station0</essid>
+      <standard>n</standard>
+    </interface>
+   <interface type="WifiInterface">
+      <mode>master</mode>
+      <channel>1</channel>
+      <essid>station1</essid>
+      <rate>54</rate>
+      <standard>n</standard>
+    </interface>
+  </node>
+
+  <node name="node11x17">
+    <attributes>receiver</attributes> <!-- comma separated attributes -->
+    <alias>receiver</alias>
+    <interface type="WifiInterface">
+      <mode>adhoc</mode> 
+      <channel>1</channel>
+      <essid>station1</essid>
+      <standard>n</standard>
+    </interface>    
+  </node>
+
+  <link type="wifi">
+    <from>sender</from>
+    <to>ap</to>
+  </link>
+  
+  <link type="wifi">
+    <from>ap</from>
+    <to>receiver</to>
+  </link>
+  
+</topology>
+
+
+
+
